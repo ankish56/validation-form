@@ -1,0 +1,64 @@
+<br><h1>Welcome to Validation Form!!</h1>
+<br>
+<form #validationForm=ngForm (ngSubmit)="getData()"> 
+<div class="form-group">
+        <div class="col-sm-10">
+        &nbsp;&nbsp;<label for="exampleInputempName"> Name: </label>
+        &nbsp;&nbsp;<input type="text" class="form-control" id="exampleInputempName" aria-describedby="nameHelp" placeholder="Enter name" 
+        name="name"  [(ngModel)]="name" #namecontrol="ngModel" required>       <!--text field for entering Name -->
+        </div>
+    <br>
+    <div class="col-sm-5">
+    <span  id="nameHelp" class="alert alert-danger" role="alert" *ngIf="namecontrol.touched && namecontrol.invalid">Name is required.</span>     <!--Name Validation -->
+    </div> 
+    </div> 
+
+
+
+
+  <div class="form-group">
+        <div class="col-sm-10">
+        &nbsp;&nbsp; <label for="exampleInputempAddress"> Address: </label>
+        &nbsp;&nbsp;<input type="text" class="form-control" id="exampleInputempAddress" aria-describedby="addressHelp" placeholder="Enter address" 
+        name="address"  [(ngModel)]="address" #addresscontrol="ngModel" required>              <!--text field for entering Address -->
+        </div>
+        <br>
+        <div class="col-sm-5">
+        <span  id="addressHelp" class="alert alert-danger" role="alert" *ngIf="addresscontrol.touched && addresscontrol.invalid">Address is required.</span>  <!--Address Validation -->
+        </div> 
+      </div>
+
+
+
+      <div class="form-group">
+            <div class="col-sm-10">
+            &nbsp;&nbsp;<label for="exampleInputempPincode"> Pin Code: </label>
+            &nbsp;&nbsp; <input type="number" class="form-control" id="exampleInputempPincode" aria-describedby="pincodeHelp" placeholder="Enter pincode" 
+            name="pincode"  [(ngModel)]="pincode" #pincodecontrol="ngModel" required>          <!--text field for entering pincode-->
+            </div>
+            <br>
+            <div class="col-sm-5">
+            <span  id="pincodeHelp" class="alert alert-danger" role="alert" *ngIf="pincodecontrol.touched && pincodecontrol.invalid">Pin-Code is required.</span>   <!--Pincode Validation -->
+            </div> 
+          </div>
+
+      
+          <div class="form-group row">
+                <div class="col-sm-2">
+                  &nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" class="btn btn-outline-success" value="Save" [disabled]="validationForm.invalid">      <!--Save Button -->
+                </div>
+            </div>    
+            
+        
+
+  
+</form>
+<div class="form-group row">
+    <div class="col-sm-2">
+      &nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" class="btn btn-outline-success" value="reset" (click)="reset()">      <!--Save Button -->
+    </div>
+</div>    
+
+You have Entered: [ "name": "{{name}}" , "address": "{{address}}"  , "PinCode": "{{pincode}}"  ]              <!--Displaying the details entered -->
+<br><br>
+<p>Form Validation Status is: "{{status}}"</p>                                         <!--Displaying the status -->
